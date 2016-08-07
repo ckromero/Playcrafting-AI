@@ -9,15 +9,20 @@ public class Motor : MonoBehaviour
 	public float speed = 6f;
 
 	private CharacterController characterController;
+	private LayerMask groundMask;
+	private float rayLength = 100f;
 
 	private void Start ()
 	{
 		characterController = GetComponent<CharacterController> ();
+		groundMask = LayerMask.GetMask ("Ground");
 	}
 
-	void Update ()
+	private void Update ()
 	{
 		Move ();
+
+		Turn ();
 	}
 
 	private void Move ()
@@ -31,5 +36,18 @@ public class Motor : MonoBehaviour
 
 	private void Turn ()
 	{
+		var cameraRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+		RaycastHit hitInfo;
+
+		if (Physics.Raycast (cameraRay, out hitInfo, rayLength, groundMask)) {
+			var direction = hitInfo.point - transform.position;
+
+			direction.y = 0f;
+
+			var quaternionRotation = Quaternion.LookRotation (direction);
+
+			transform.rotation = quaternionRotation;
+		}
 	}
 }

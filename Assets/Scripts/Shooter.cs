@@ -55,7 +55,7 @@ public class Shooter : MonoBehaviour
 		timer = 0f;
 
 		EnableEffects ();
-		shotRay.origin = transform.position;
+		shotRay.origin = shotPosition.position;
 		shotRay.direction = shotPosition.forward;
 
 		line.SetPosition (0, shotRay.origin);

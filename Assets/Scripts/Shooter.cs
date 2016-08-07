@@ -5,13 +5,13 @@ public class Shooter : MonoBehaviour
 {
 	public Transform shotPosition;
 	public string fireInputName = "Fire1";
-	public float damagePerShot = 20f;
+	public float weaponDamage = 20f;
 	public float timeBetweenShot = 0.15f;
 	public float bulletRange = 100f;
 
-
 	private Ray shotRay;
 	private RaycastHit hitInfo;
+	private LayerMask mask;
 	private LineRenderer line;
 	private Light gunLight;
 	private float timer;
@@ -22,6 +22,7 @@ public class Shooter : MonoBehaviour
 	{
 		gunLight = shotPosition.GetComponent<Light> ();
 		line = shotPosition.GetComponent<LineRenderer> ();
+		mask = LayerMask.GetMask ("Shootable");
 	}
 	
 	// Update is called once per frame
@@ -55,12 +56,18 @@ public class Shooter : MonoBehaviour
 		timer = 0f;
 
 		EnableEffects ();
-		shotRay.origin = transform.position;
+		shotRay.origin = shotPosition.position;
 		shotRay.direction = shotPosition.forward;
 
 		line.SetPosition (0, shotRay.origin);
 
-		if (Physics.Raycast (shotRay, out hitInfo, bulletRange)) {
+		if (Physics.Raycast (shotRay, out hitInfo, bulletRange, mask)) {
+			var enemyHealth = hitInfo.transform.root.GetComponent<Health> ();
+
+			if (enemyHealth != null) {
+				enemyHealth.Damage (weaponDamage);
+			}
+
 			line.SetPosition (1, hitInfo.point);
 		} else {
 			line.SetPosition (1, shotRay.origin + shotRay.direction * bulletRange);

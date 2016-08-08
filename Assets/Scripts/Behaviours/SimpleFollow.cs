@@ -25,8 +25,6 @@ public class SimpleFollow : AIBehavior
 	{
 		navAgent.SetDestination (playerTransform.position);
 
-		Debug.LogFormat ("Remaining: {0}, Stopping: {1}", navAgent.remainingDistance, navAgent.stoppingDistance);
-
 		if (navAgent.remainingDistance < navAgent.stoppingDistance) {
 			navAgent.Stop ();
 			animator.SetTrigger ("Attack");

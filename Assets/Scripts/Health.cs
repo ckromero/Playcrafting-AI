@@ -12,11 +12,11 @@ public class Health : MonoBehaviour
 	/// <summary>
 	/// Internal value of the health
 	/// </summary>
-	private float currentHealth;
+	public float CurrentHealth { get; private set; }
 
 	protected virtual void Start ()
 	{
-		currentHealth = maxHealth;
+		CurrentHealth = maxHealth;
 	}
 
 	/// <summary>
@@ -29,9 +29,9 @@ public class Health : MonoBehaviour
 			return;
 		}
 
-		currentHealth -= amount;
+		CurrentHealth -= amount;
 
-		if (currentHealth <= 0f) {
+		if (CurrentHealth <= 0f) {
 			Die ();	
 		}
 	}
@@ -41,5 +41,6 @@ public class Health : MonoBehaviour
 	/// </summary>
 	public virtual void Die ()
 	{
+		Destroy (gameObject);
 	}
 }

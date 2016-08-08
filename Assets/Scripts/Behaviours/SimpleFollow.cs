@@ -23,7 +23,9 @@ public class SimpleFollow : AIBehavior
 
 	protected override BehaviorState OnBehaviorUpdate ()
 	{
-		navAgent.SetDestination (playerTransform.position);
+		if (navAgent != null) {
+			navAgent.SetDestination (playerTransform.position);
+		}
 
 		if (navAgent.remainingDistance < navAgent.stoppingDistance) {
 			navAgent.Stop ();

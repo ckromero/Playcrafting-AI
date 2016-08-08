@@ -6,7 +6,13 @@ using System.Collections;
 /// </summary>
 public interface IAIBehavior {
 
+    /// <summary>
+    /// The name of the behavior
+    /// </summary>
     string name { get; }
 
+    /// <summary>
+    /// Stops the behavior and performs internal sanity tasks.
+    /// </summary>
     void Stop();
 }

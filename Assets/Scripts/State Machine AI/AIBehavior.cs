@@ -71,7 +71,9 @@ public abstract class AIBehavior : StateMachineBehaviour, IAIBehavior
 			this.animator = animator;
 			aiBrain = animator.GetComponent<IAIBrain> ();
 			CurrentInitState = InitState.Initialized;
-			OnBehaviorStart ();
+			if (aiBrain.SetBehaviorAsActive (this)) {
+				OnBehaviorStart ();
+			}
 			break;
 
 		case InitState.Initialized:

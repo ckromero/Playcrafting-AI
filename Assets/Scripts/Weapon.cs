@@ -14,16 +14,9 @@ public class Weapon : MonoBehaviour
 		weaponCollider = GetComponent<Collider> ();
 		weaponCollider.isTrigger = true;
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
 
 	private void OnTriggerEnter (Collider other)
 	{
-		Debug.Log (other.name);
 		if (other.CompareTag ("Player")) {
 			var health = other.GetComponent<Health> ();
 

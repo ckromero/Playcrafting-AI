@@ -56,7 +56,7 @@ public class AIBrainInspector : Editor
 				EditorGUI.indentLevel++;
 
 				foreach (var behavior in activeBehaviors) {
-					EditorGUILayout.LabelField (behavior.name);
+					EditorGUILayout.LabelField (behavior.ToString());
 				}
 
 				EditorGUI.indentLevel--;
@@ -87,7 +87,7 @@ public class AIBrainInspector : Editor
 				EditorGUI.indentLevel++;
 
 				foreach (var behavior in inactiveBehaviors) {
-					EditorGUILayout.LabelField (behavior.name);
+					EditorGUILayout.LabelField (behavior.ToString());
 				}
 
 				EditorGUI.indentLevel--;

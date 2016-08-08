@@ -8,7 +8,6 @@ public class Attack : AIBehavior
 
 	private Transform playerTransform;
 	private float distanceBetweenTarget;
-	private float angleBetweenTarget;
 
 	private void OnEnable ()
 	{
@@ -17,14 +16,12 @@ public class Attack : AIBehavior
 
 	protected override void OnBehaviorStart ()
 	{
-		SetPlayerInfo ();
+		SetDistance ();
 	}
 
 	protected override BehaviorState OnBehaviorUpdate ()
 	{
-		SetPlayerInfo ();
-
-		// Debug.LogFormat ("Distance: {0}, Min Distance: {1}", distanceBetweenTarget, minimalDistance);
+		SetDistance ();
 
 		if (distanceBetweenTarget > minimalDistance) {
 			animator.SetTrigger ("Move");
@@ -38,11 +35,8 @@ public class Attack : AIBehavior
 		aiBrain.transform.LookAt (playerTransform);
 	}
 
-	private void SetPlayerInfo ()
+	private void SetDistance ()
 	{
 		distanceBetweenTarget = Vector3.Distance (playerTransform.position, aiBrain.transform.position);
-
-		var direction = playerTransform.position - aiBrain.transform.position;
-		angleBetweenTarget = Vector3.Angle (direction, aiBrain.transform.forward);
 	}
 }

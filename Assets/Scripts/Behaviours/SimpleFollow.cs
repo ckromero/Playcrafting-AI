@@ -3,6 +3,9 @@ using System.Collections;
 
 public class SimpleFollow : AIBehavior
 {
+    [Tooltip("How close is the AI to be considered 'close enough' to the player")]
+    public float nearDistance = 1.25f;
+
 	private Transform playerTransform;
 	private NavMeshAgent navAgent;
 
@@ -27,7 +30,7 @@ public class SimpleFollow : AIBehavior
 			navAgent.SetDestination (playerTransform.position);
 		}
 
-		if (navAgent.remainingDistance < navAgent.stoppingDistance) {
+		if (Vector3.Distance(navAgent.transform.position, playerTransform.position) < navAgent.stoppingDistance) {
 			navAgent.Stop ();
 			animator.SetTrigger ("Attack");
 			return BehaviorState.Done;

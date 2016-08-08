@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-
 	/// <summary>
 	/// Amount of health we want to give to this character
 	/// </summary>
@@ -13,6 +12,10 @@ public class Health : MonoBehaviour
 	/// Internal value of the health
 	/// </summary>
 	public float CurrentHealth { get; private set; }
+
+    public event DamageHealthHandler OnDamageHealth;
+    public delegate void DamageHealthHandler(float damage);
+
 
 	protected virtual void Start ()
 	{
@@ -30,6 +33,10 @@ public class Health : MonoBehaviour
 		}
 
 		CurrentHealth -= amount;
+        
+        if(OnDamageHealth != null) {
+            OnDamageHealth(amount);
+        }
 
 		if (CurrentHealth <= 0f) {
 			Die ();	
@@ -41,6 +48,6 @@ public class Health : MonoBehaviour
 	/// </summary>
 	public virtual void Die ()
 	{
-		Destroy (gameObject);
+        gameObject.SetActive(false);
 	}
 }

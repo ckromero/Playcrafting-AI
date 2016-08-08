@@ -51,14 +51,20 @@ public class Shooter : MonoBehaviour
 		line.enabled = false;
 	}
 
+
 	private void Shoot ()
 	{
+		// Reset our timer
 		timer = 0f;
 
+		// Enable certain effects like the lineRenderer and light
 		EnableEffects ();
+
+		// Assign certain values and properties to our Ray
 		shotRay.origin = shotPosition.position;
 		shotRay.direction = shotPosition.forward;
 
+		// Set the position of the lineRenderer's starting point
 		line.SetPosition (0, shotRay.origin);
 
 		if (Physics.Raycast (shotRay, out hitInfo, bulletRange, mask)) {
@@ -68,8 +74,10 @@ public class Shooter : MonoBehaviour
 				enemyHealth.Damage (weaponDamage);
 			}
 
+			// If we hit something, then our line renderer should be drawn to that point we hit
 			line.SetPosition (1, hitInfo.point);
 		} else {
+			// Otherwise
 			line.SetPosition (1, shotRay.origin + shotRay.direction * bulletRange);
 		}
 	}

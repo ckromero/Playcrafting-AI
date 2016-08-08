@@ -5,83 +5,96 @@ using System.Linq;
 /// <summary>
 /// The custom brain editor.  Allows users to see the current brain information in the editor.
 /// </summary>
-[CustomEditor(typeof(AIBrain))]
-public class AIBrainInspector : Editor {
+[CustomEditor (typeof(AIBrain))]
+public class AIBrainInspector : Editor
+{
 
-    private AIBrain brain;
-    private Animator animator;
+	private AIBrain brain;
+	private Animator animator;
 
-    private bool allowActiveBehaviors = true;
-    private bool allowInactiveBehaviors = true;
-
-
-    private void OnEnable() {
-        brain = (AIBrain)target;
-        animator = brain.GetComponent<Animator>();
-    }
-
-    public override void OnInspectorGUI() {
-        DrawDefaultInspector();
-
-        if(brain != null) {
-            InspectBrainInfo();
-        }
-    }
+	private bool allowActiveBehaviors = true;
+	private bool allowInactiveBehaviors = true;
 
 
-    private void InspectBrainInfo() {
-        var behaviors = animator.GetBehaviours<AIBehavior>();
+	private void OnEnable ()
+	{
+		brain = (AIBrain)target;
+		animator = brain.GetComponent<Animator> ();
+	}
 
-        EditorGUILayout.LabelField(string.Format("Number of Behaviors: {0}", behaviors.Length), 
-            EditorStyles.boldLabel);
+	public override void OnInspectorGUI ()
+	{
+		DrawDefaultInspector ();
 
-        DisplayActiveBehaviors(behaviors);
-        DisplayInactiveBehaviors(behaviors);
-    }
+		if (brain != null) {
+			InspectBrainInfo ();
+		}
+	}
 
-    private void DisplayActiveBehaviors(AIBehavior[] behaviors) {
-        allowActiveBehaviors = EditorGUILayout.Foldout(allowActiveBehaviors, "Active Behaviors");
-        if(allowActiveBehaviors) {
 
-            var activeBehaviors = ( from b in behaviors
-                                    where brain.IsBehaviorActive(b)
-                                    select b ).ToArray();
+	private void InspectBrainInfo ()
+	{
+		var behaviors = animator.GetBehaviours<AIBehavior> ();
 
-            if(activeBehaviors != null && activeBehaviors.Length > 0) {
-                EditorGUI.indentLevel++;
+		EditorGUILayout.LabelField (string.Format ("Number of Behaviors: {0}", behaviors.Length), 
+			EditorStyles.boldLabel);
 
-                foreach(var behavior in activeBehaviors) {
-                    EditorGUILayout.LabelField(behavior.name);
-                }
+		DisplayActiveBehaviors (behaviors);
+		DisplayInactiveBehaviors (behaviors);
+	}
 
-                EditorGUI.indentLevel--;
-            }
-            else {
-                EditorGUILayout.LabelField("None");
-            }
-        }
-    }
+	private void DisplayActiveBehaviors (AIBehavior[] behaviors)
+	{
+		allowActiveBehaviors = EditorGUILayout.Foldout (allowActiveBehaviors, "Active Behaviors");
+		if (allowActiveBehaviors) {
 
-    private void DisplayInactiveBehaviors(AIBehavior[] behaviors) {
-        allowInactiveBehaviors = EditorGUILayout.Foldout(allowInactiveBehaviors, "Inactive Behaviors");
-        if(allowInactiveBehaviors) {
-            var inactiveBehaviors = ( from b in behaviors
-                                      where !brain.IsBehaviorActive(b)
-                                      select b ).ToArray();
+			var activeBehaviors = (from b in behaviors
+			                       where IsBehaviorActive (brain, b)
+			                       select b).ToArray ();
 
-            if(inactiveBehaviors != null && inactiveBehaviors.Length > 0) {
-                EditorGUI.indentLevel++;
+			if (activeBehaviors != null && activeBehaviors.Length > 0) {
+				EditorGUI.indentLevel++;
 
-                foreach(var behavior in inactiveBehaviors) {
-                    EditorGUILayout.LabelField(behavior.name);
-                }
+				foreach (var behavior in activeBehaviors) {
+					EditorGUILayout.LabelField (behavior.name);
+				}
 
-                EditorGUI.indentLevel--;
-            }
-            else {
-                EditorGUILayout.LabelField("None");
-            }
-        }
-    }
+				EditorGUI.indentLevel--;
+			} else {
+				EditorGUILayout.LabelField ("None");
+			}
+		}
+	}
+
+	private bool IsBehaviorActive (AIBrain brain, AIBehavior behaviour)
+	{
+		try {
+			return brain.IsBehaviorActive (behaviour);
+		} catch (System.NullReferenceException) {
+			return false;
+		}
+	}
+
+	private void DisplayInactiveBehaviors (AIBehavior[] behaviors)
+	{
+		allowInactiveBehaviors = EditorGUILayout.Foldout (allowInactiveBehaviors, "Inactive Behaviors");
+		if (allowInactiveBehaviors) {
+			var inactiveBehaviors = (from b in behaviors
+			                         where !IsBehaviorActive (brain, b)
+			                         select b).ToArray ();
+
+			if (inactiveBehaviors != null && inactiveBehaviors.Length > 0) {
+				EditorGUI.indentLevel++;
+
+				foreach (var behavior in inactiveBehaviors) {
+					EditorGUILayout.LabelField (behavior.name);
+				}
+
+				EditorGUI.indentLevel--;
+			} else {
+				EditorGUILayout.LabelField ("None");
+			}
+		}
+	}
 
 }

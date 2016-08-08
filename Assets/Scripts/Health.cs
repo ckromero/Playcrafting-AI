@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 
 	private float currentHealth;
 
-	private void Awake ()
+	protected virtual void Awake ()
 	{
 		currentHealth = maxHealth;
 	}

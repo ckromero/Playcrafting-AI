@@ -435,7 +435,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -1.7850704, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -61.914413, y: 0, z: 0}
   m_Children:
   - {fileID: 344622586}
   - {fileID: 2101673502}
@@ -635,12 +635,12 @@ GameObject:
   - 65: {fileID: 1895785838}
   - 23: {fileID: 1895785837}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1895785836
 Transform:
   m_ObjectHideFlags: 0

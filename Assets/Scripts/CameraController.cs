@@ -22,8 +22,10 @@ public class CameraController : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
 	{
-		var cameraPosition = target.position + cameraOffset;
+		if (target != null) {
+			var cameraPosition = target.position + cameraOffset;
 
-		transform.position = Vector3.Lerp (transform.position, cameraPosition, cameraDampening * Time.deltaTime);
+			transform.position = Vector3.Lerp (transform.position, cameraPosition, cameraDampening * Time.deltaTime);
+		}
 	}
 }

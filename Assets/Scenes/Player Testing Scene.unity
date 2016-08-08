@@ -405,15 +405,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 23000013670915180, guid: db501f075272ba44f9457fcb18cdd896,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 02458ffabc5a9ad439ad2e2e574beebe, type: 2}
-    - target: {fileID: 1000013306935838, guid: db501f075272ba44f9457fcb18cdd896, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db501f075272ba44f9457fcb18cdd896, type: 2}
   m_IsPrefabParent: 0
@@ -448,23 +439,6 @@ Transform:
   - {fileID: 1895785836}
   m_Father: {fileID: 360217391}
   m_RootOrder: 0
---- !u!1 &1376685197 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013306935838, guid: db501f075272ba44f9457fcb18cdd896,
-    type: 2}
-  m_PrefabInternal: {fileID: 977259627}
---- !u!114 &1376685198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1376685197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecd00625fa8c48d4eb6a93caa0b8822f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!1 &1474910647
 GameObject:
   m_ObjectHideFlags: 0

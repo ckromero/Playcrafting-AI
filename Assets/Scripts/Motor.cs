@@ -8,6 +8,8 @@ public class Motor : MonoBehaviour
 	public string verticalInput = "Vertical";
 	public float speed = 6f;
 
+    public bool useTankControls = false;
+
 	private CharacterController characterController;
 	private LayerMask groundMask;
 	private float rayLength = 100f;
@@ -28,7 +30,9 @@ public class Motor : MonoBehaviour
 	private void Move ()
 	{
 		var motion = new Vector3 (Input.GetAxis (horizontalInput), 0, Input.GetAxis (verticalInput));
-		motion = transform.TransformDirection (motion);
+        if(useTankControls) {
+            motion = transform.TransformDirection (motion);
+        }
 		motion *= (speed * Time.deltaTime);
 
 		characterController.Move (motion);

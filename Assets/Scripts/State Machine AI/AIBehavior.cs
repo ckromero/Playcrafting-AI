@@ -7,25 +7,40 @@ using System.Collections;
 /// </summary>
 public abstract class AIBehavior : StateMachineBehaviour, IAIBehavior
 {
-
+	/// <summary>
+	/// A reference to the animator.
+	/// </summary>
+	/// <value>The animator.</value>
 	protected Animator animator { get; private set; }
 
+	/// <summary>
+	/// A reference to the AIBrain that handles and executes a behavior.
+	/// </summary>
+	/// <value>The ai brain.</value>
 	protected IAIBrain aiBrain { get; private set; }
 
+	/// <summary>
+	/// State of the AI, determines whether or not the brain is initialized or not.
+	/// </summary>
+	/// <value>The state of the current init.</value>
 	private InitState CurrentInitState { get; set; }
 
+	/// <summary>
+	/// State of our behavior. Is the behavior running or done?
+	/// </summary>
 	public enum BehaviorState
 	{
 		Running,
 		Done
-
 	}
 
+	/// <summary>
+	/// Private states that tells whether or not the brain is active.
+	/// </summary>
 	private enum InitState
 	{
 		Uninitialized,
 		Initialized
-
 	}
 
 
@@ -58,6 +73,7 @@ public abstract class AIBehavior : StateMachineBehaviour, IAIBehavior
 	public void Stop ()
 	{
 		OnBehaviorEnd ();
+		aiBrain.StopBehavior (this);
 	}
 
 	#region State Machine Calls

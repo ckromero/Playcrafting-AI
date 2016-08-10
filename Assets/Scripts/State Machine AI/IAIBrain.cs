@@ -17,4 +17,10 @@ public interface IAIBrain : IMonobehaviour
 	/// </summary>
 	bool IsBehaviorActive (IAIBehavior behavior);
 
+	/// <summary>
+	/// Stops the current behavior from running.
+	/// </summary>
+	/// <param name="behavior">The current behavior to stop.</param>
+	void StopBehavior (IAIBehavior behavior);
+
 }

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: 0.16666667
     manualCellSize: 0
-  m_NavMeshData: {fileID: 23800000, guid: 94f73d017f49e7843a55278d4822d832, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c89c4f56d50124b618636531cea0a204, type: 2}
 --- !u!1 &4285729 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010102852034, guid: 7d6afd72b3fe75644974ee451f82bc98,
@@ -182,6 +182,10 @@ Prefab:
     - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
       propertyPath: m_Name
       value: Simple Enemy (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
@@ -605,6 +609,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -801,6 +809,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -987,6 +999,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -1063,6 +1079,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -1138,6 +1158,10 @@ Prefab:
     - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
       propertyPath: m_Name
       value: Simple Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
@@ -1817,6 +1841,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -2017,6 +2045,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -2207,6 +2239,10 @@ Prefab:
       propertyPath: m_Name
       value: Simple Enemy (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
   m_IsPrefabParent: 0
@@ -2282,6 +2318,10 @@ Prefab:
     - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
       propertyPath: m_Name
       value: Simple Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012130199440, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6afd72b3fe75644974ee451f82bc98, type: 2}

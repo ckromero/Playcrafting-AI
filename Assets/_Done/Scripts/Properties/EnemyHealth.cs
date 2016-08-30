@@ -21,5 +21,7 @@ public class EnemyHealth : Health
 
 		Destroy (gameObject, deathParticles.GetComponent<ParticleController> ().timeToDestroy);
 		Instantiate (deathParticles, transform.position, Quaternion.identity);
+
+		GameManager.instance.removeEnemies (this.name);
 	}
 }

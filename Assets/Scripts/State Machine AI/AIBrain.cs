@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
 /// <summary>
 /// The "brain" of the AI.  Handles what behavior is running and what isn't.
 /// </summary>
@@ -15,7 +16,11 @@ public class AIBrain : MonoBehaviour, IAIBrain
 
 	private void Awake ()
 	{
+		
 		activeBehaviors = new HashSet<IAIBehavior> ();
+
+		GameManager.instance.AddLivingEnemies (this.name);
+
 	}
 
 	/// <summary>
@@ -44,7 +49,7 @@ public class AIBrain : MonoBehaviour, IAIBrain
 	public void StopBehavior (IAIBehavior behavior)
 	{
 		if (activeBehaviors.Contains (behavior)) {
-			behavior.Stop ();
+//			behavior.Stop ();
 			activeBehaviors.Remove (behavior);
 		}
 	}

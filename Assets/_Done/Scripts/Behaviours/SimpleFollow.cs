@@ -41,6 +41,9 @@ public class SimpleFollow : AIBehavior
 	protected override void OnBehaviorEnd ()
 	{
 		navAgent.ResetPath ();
-		navAgent.SetDestination (playerTransform.position);
-	}
+
+			navAgent.SetDestination (playerTransform.position);
+
+		}
+
 }

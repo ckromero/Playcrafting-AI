@@ -35,3 +35,6 @@ sysinfo.txt
 
 # NavMesh
 NavMesh.asset*
+
+# Mac Finder puts these in:
+*.DS_Store

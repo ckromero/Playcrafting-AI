@@ -32,7 +32,9 @@ public class Attack : AIBehavior
 
 	protected override void OnBehaviorEnd ()
 	{
-		aiBrain.transform.LookAt (playerTransform);
+
+			aiBrain.transform.LookAt (playerTransform);
+	
 	}
 
 	private void SetDistance ()

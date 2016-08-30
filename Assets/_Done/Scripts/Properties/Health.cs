@@ -49,5 +49,7 @@ public class Health : MonoBehaviour
 	public virtual void Die ()
 	{
         gameObject.SetActive(false);
+		Debug.Log ("You died!");
+
 	}
 }
